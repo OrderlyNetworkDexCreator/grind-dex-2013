@@ -16,7 +16,7 @@ window.__RUNTIME_CONFIG__ = {
   "VITE_APP_NAME": "Grind DEX",
   "VITE_APP_DESCRIPTION": "24/7 LIVE - Documentary of 6 friends building a brand & onboarding the world into crypto. Using our Community DEX helps us scale faster!",
   "VITE_HAS_PRIMARY_LOGO": "true",
-  "VITE_HAS_SECONDARY_LOGO": "false",
+  "VITE_HAS_SECONDARY_LOGO": "true",
   "VITE_ENABLED_MENUS": "Trading,Portfolio,Markets,Rewards,Vaults,Leaderboard",
   "VITE_CUSTOM_MENUS": "",
   "VITE_ENABLE_CAMPAIGNS": "false",
