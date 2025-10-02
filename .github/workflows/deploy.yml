@@ -125,25 +125,6 @@ jobs:
           cp public/config.js ./build/client/config.js
           echo "✅ Updated config.js copied to build output"
 
-      - name: Log build directory contents
-        run: |
-          echo "=== BUILD DIRECTORY STRUCTURE ==="
-          find ./build -type f -name "*.js" | head -20
-          echo ""
-          echo "=== CONFIG.JS LOCATIONS ==="
-          find ./build -name "config.js" -exec echo "Found: {}" \; -exec cat {} \;
-          echo ""
-          echo "=== BUILD/CLIENT DIRECTORY ==="
-          ls -la ./build/client/ || echo "No build/client directory found"
-          echo ""
-          echo "=== BUILD/CLIENT/CONFIG.JS CONTENT ==="
-          if [ -f "./build/client/config.js" ]; then
-            echo "config.js exists in build/client/"
-            cat ./build/client/config.js
-          else
-            echo "❌ config.js NOT found in build/client/"
-          fi
-
       - name: Cache build artifacts
         if: steps.check-changes.outputs.needs_build == 'true' || steps.force-build.outputs.needs_build == 'true'
         uses: actions/cache/save@v4
@@ -156,9 +137,6 @@ jobs:
         with:
           token: ${{ secrets.TEMPLATE_PAT }}
           enablement: true
-
-      - name: Log config.js
-        run: cat ./build/client/config.js
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
